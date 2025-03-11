@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { 
-  Scan3d, 
+  Scan, 
   Calendar, 
   MessageCircle, 
   CheckCircle, 
@@ -48,7 +48,7 @@ const Features = () => {
 
   const features = [
     {
-      icon: <Scan3d className="h-12 w-12 text-rhinovate-600" />,
+      icon: <Scan className="h-12 w-12 text-rhinovate-600" />,
       title: "AI-Powered 3D Visualization",
       description: "Ultra-realistic before-and-after visualizations created by our advanced AI models, specifically trained on rhinoplasty outcomes."
     },
