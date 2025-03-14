@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <a href="/" className="font-display text-2xl font-semibold tracking-tight text-rhinovate-900">
+          <Link to="/" className="font-display text-2xl font-semibold tracking-tight text-rhinovate-900">
             Rhinovate
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -48,6 +49,9 @@ const Navbar = () => {
           <a href="#testimonials" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
             Testimonials
           </a>
+          <Link to="/news" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
+            Actualités
+          </Link>
           <a href="#contact" className="rhinovate-btn-primary">
             Request Demo
           </a>
@@ -94,6 +98,13 @@ const Navbar = () => {
           >
             Testimonials
           </a>
+          <Link 
+            to="/news" 
+            className="text-lg font-medium text-gray-700 hover:text-rhinovate-600 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Actualités
+          </Link>
           <a 
             href="#contact" 
             className="rhinovate-btn-primary w-full text-center"
