@@ -50,7 +50,7 @@ const Navbar = () => {
             Testimonials
           </a>
           <Link to="/news" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
-            Actualités
+            News
           </Link>
           <a href="#contact" className="rhinovate-btn-primary">
             Request Demo
@@ -103,7 +103,7 @@ const Navbar = () => {
             className="text-lg font-medium text-gray-700 hover:text-rhinovate-600 transition-colors"
             onClick={() => setIsOpen(false)}
           >
-            Actualités
+            News
           </Link>
           <a 
             href="#contact" 

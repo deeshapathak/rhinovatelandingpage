@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { ArrowRight, Calendar, Users, Clock } from 'lucide-react';
+import { ArrowRight, Calendar, Users, Clock, ExternalLink } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
-// Types pour nos articles
+// Types for our articles
 interface NewsArticle {
   id: number;
   title: string;
@@ -16,6 +16,7 @@ interface NewsArticle {
   date: string;
   readTime: string;
   image: string;
+  url: string; // Add URL field for external links
 }
 
 const News = () => {
@@ -24,88 +25,98 @@ const News = () => {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simuler le chargement des actualités
+  // Simulating loading the news
   useEffect(() => {
-    // Simuler un délai de chargement de l'API
+    // Simulate an API loading delay
     setIsLoading(true);
     
     setTimeout(() => {
-      // Données simulées
+      // Simulated data
       const mockedArticles: NewsArticle[] = [
         {
           id: 1,
-          title: "Rhinovate lance sa plateforme de visualisation 3D révolutionnaire",
-          excerpt: "Notre nouvelle plateforme IA permet aux patients de voir leurs résultats de rhinoplastie en 3D avant l'intervention.",
+          title: "Rhinovate launches revolutionary 3D visualization platform",
+          excerpt: "Our new AI platform allows patients to see their rhinoplasty results in 3D before the procedure.",
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc nisl ultrices nunc, nec ultricies nisl nunc nec nisl.",
           category: 'press',
-          author: "Équipe Rhinovate",
-          date: "15 juin 2023",
+          author: "Rhinovate Team",
+          date: "June 15, 2023",
           readTime: "5 min",
-          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+          url: "https://example.com/article1"
         },
         {
           id: 2,
-          title: "Rhinovate s'associe avec 15 cliniques de chirurgie plastique à Los Angeles",
-          excerpt: "Ce partenariat stratégique permet d'étendre notre technologie à plus de patients potentiels.",
+          title: "Rhinovate partners with 15 plastic surgery clinics in Los Angeles",
+          excerpt: "This strategic partnership expands our technology to more potential patients.",
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc nisl ultrices nunc, nec ultricies nisl nunc nec nisl.",
           category: 'press',
           author: "Marie Dubois",
-          date: "3 juillet 2023",
+          date: "July 3, 2023",
           readTime: "3 min",
-          image: "https://images.unsplash.com/photo-1551076805-e1869033e561"
+          image: "https://images.unsplash.com/photo-1551076805-e1869033e561",
+          url: "https://example.com/article2"
         },
         {
           id: 3,
-          title: "Comment notre IA prédit le processus de guérison après une rhinoplastie",
-          excerpt: "Découvrez la technologie derrière notre capacité à montrer les différentes étapes de récupération.",
+          title: "How our AI predicts the healing process after rhinoplasty",
+          excerpt: "Discover the technology behind our ability to show different recovery stages.",
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc nisl ultrices nunc, nec ultricies nisl nunc nec nisl.",
           category: 'blog',
           author: "Dr. Thomas Martin",
-          date: "22 août 2023",
+          date: "August 22, 2023",
           readTime: "7 min",
-          image: "https://images.unsplash.com/photo-1484557985045-edf25e08da73"
+          image: "https://images.unsplash.com/photo-1484557985045-edf25e08da73",
+          url: "https://example.com/article3"
         },
         {
           id: 4,
-          title: "Rhinovate lève 4 millions d'euros pour accélérer son développement",
-          excerpt: "Ce tour de financement va permettre d'améliorer notre technologie et d'étendre notre présence à l'international.",
+          title: "Rhinovate raises $4.5 million to accelerate development",
+          excerpt: "This funding round will improve our technology and expand our international presence.",
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc nisl ultrices nunc, nec ultricies nisl nunc nec nisl.",
           category: 'press',
-          author: "Équipe Rhinovate",
-          date: "10 septembre 2023",
+          author: "Rhinovate Team",
+          date: "September 10, 2023",
           readTime: "4 min",
-          image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d"
+          image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d",
+          url: "https://example.com/article4"
         },
         {
           id: 5,
-          title: "Les avantages de la visualisation 3D pour les patients",
-          excerpt: "Comment notre technologie aide les patients à prendre des décisions plus éclairées sur leur rhinoplastie.",
+          title: "The benefits of 3D visualization for patients",
+          excerpt: "How our technology helps patients make more informed decisions about their rhinoplasty.",
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc nisl ultrices nunc, nec ultricies nisl nunc nec nisl.",
           category: 'blog',
           author: "Dr. Sophie Leblanc",
-          date: "5 octobre 2023",
+          date: "October 5, 2023",
           readTime: "6 min",
-          image: "https://images.unsplash.com/photo-1525498128493-380d1990a112"
+          image: "https://images.unsplash.com/photo-1525498128493-380d1990a112",
+          url: "https://example.com/article5"
         },
       ];
       
       setNewsArticles(mockedArticles);
       setIsLoading(false);
       
-      // Notification de mise à jour
+      // Update notification
       toast({
-        title: "Actualités mises à jour",
-        description: "Les dernières actualités ont été chargées",
+        title: "News Updated",
+        description: "The latest news has been loaded",
         duration: 3000,
       });
     }, 1500);
   }, [toast]);
 
-  // Filtrer les articles selon l'onglet actif
+  // Filter articles based on active tab
   const filteredArticles = newsArticles.filter(article => {
     if (activeTab === 'all') return true;
     return article.category === activeTab;
   });
+
+  // Function to open article in new tab
+  const openArticle = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -117,10 +128,10 @@ const News = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-20">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-gray-900 mb-6">
-                Actualités et Articles de Presse
+                News and Press Articles
               </h1>
               <p className="text-lg text-gray-600">
-                Découvrez les dernières innovations et annonces de Rhinovate, ainsi que notre couverture médiatique.
+                Discover the latest innovations and announcements from Rhinovate, as well as our media coverage.
               </p>
             </div>
           </div>
@@ -137,7 +148,7 @@ const News = () => {
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              Tous les Articles
+              All Articles
             </button>
             <button 
               onClick={() => setActiveTab('press')}
@@ -147,7 +158,7 @@ const News = () => {
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              Articles de Presse
+              Press Articles
             </button>
             <button 
               onClick={() => setActiveTab('blog')}
@@ -164,7 +175,7 @@ const News = () => {
           {/* Articles */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {isLoading ? (
-              // Squelettes de chargement
+              // Loading skeletons
               Array(6).fill(0).map((_, i) => (
                 <div key={i} className="bg-white rounded-lg overflow-hidden shadow animate-pulse">
                   <div className="h-48 bg-gray-300"></div>
@@ -180,18 +191,21 @@ const News = () => {
             ) : filteredArticles.length > 0 ? (
               filteredArticles.map((article) => (
                 <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl border border-gray-100">
-                  <div className="relative h-48 overflow-hidden">
+                  <div 
+                    className="relative h-48 overflow-hidden cursor-pointer" 
+                    onClick={() => openArticle(article.url)}
+                  >
                     <img 
                       src={article.image} 
                       alt={article.title}
                       className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
                     />
                     <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-semibold px-2 py-1 rounded-full uppercase text-rhinovate-600">
-                      {article.category === 'press' ? 'Presse' : 'Blog'}
+                      {article.category === 'press' ? 'Press' : 'Blog'}
                     </span>
                   </div>
                   <div className="p-6">
-                    <h3 className="font-display font-semibold text-xl mb-3 text-gray-900 line-clamp-2">
+                    <h3 className="font-display font-semibold text-xl mb-3 text-gray-900 line-clamp-2 cursor-pointer hover:text-rhinovate-600 transition-colors" onClick={() => openArticle(article.url)}>
                       {article.title}
                     </h3>
                     <p className="text-gray-600 mb-4 line-clamp-3">
@@ -208,8 +222,12 @@ const News = () => {
                         <Users className="h-4 w-4 mr-1 text-gray-400" />
                         <span className="text-sm text-gray-500">{article.author}</span>
                       </div>
-                      <button className="text-rhinovate-600 font-medium text-sm inline-flex items-center hover:text-rhinovate-700 transition-colors">
-                        Lire plus <ArrowRight className="ml-1 h-4 w-4" />
+                      <button 
+                        onClick={() => openArticle(article.url)}
+                        className="text-rhinovate-600 font-medium text-sm inline-flex items-center hover:text-rhinovate-700 transition-colors"
+                        aria-label={`Open ${article.title} in new tab`}
+                      >
+                        Read more <ExternalLink className="ml-1 h-4 w-4" />
                       </button>
                     </div>
                   </div>
@@ -217,7 +235,7 @@ const News = () => {
               ))
             ) : (
               <div className="col-span-full text-center py-12">
-                <p className="text-gray-500">Aucun article trouvé dans cette catégorie</p>
+                <p className="text-gray-500">No articles found in this category</p>
               </div>
             )}
           </div>
@@ -226,15 +244,15 @@ const News = () => {
           <div className="mt-16 bg-rhinovate-50 rounded-2xl p-8 md:p-12">
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-2xl font-display font-semibold mb-4 text-gray-900">
-                Restez informé de nos dernières actualités
+                Stay informed about our latest news
               </h3>
               <p className="text-gray-600 mb-6">
-                Inscrivez-vous à notre newsletter pour recevoir nos dernières actualités et mises à jour directement dans votre boîte de réception.
+                Subscribe to our newsletter to receive our latest news and updates directly in your inbox.
               </p>
               <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input 
                   type="email" 
-                  placeholder="Votre adresse email" 
+                  placeholder="Your email address" 
                   className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rhinovate-400 focus:border-rhinovate-400 outline-none transition-all"
                   required
                 />
@@ -242,7 +260,7 @@ const News = () => {
                   type="submit" 
                   className="rhinovate-btn-primary whitespace-nowrap"
                 >
-                  S'inscrire
+                  Subscribe
                 </button>
               </form>
             </div>
