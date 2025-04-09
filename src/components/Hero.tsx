@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
@@ -41,7 +40,7 @@ const Hero = () => {
         <div ref={heroRef} className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center rounded-full bg-rhinovate-100 px-4 py-1.5 text-sm font-medium text-rhinovate-800 mb-8">
             <span className="mr-1.5 flex h-2 w-2 rounded-full bg-rhinovate-500"></span>
-            Revolutionizing Rhinoplasty Visualization
+            Revolutionizing Plastic Surgery
           </span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-gray-900 mb-6 text-balance">
@@ -82,16 +81,15 @@ const Hero = () => {
           <div className="relative overflow-hidden rounded-xl shadow-2xl">
             <div className="image-loading">
               <img
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
-                alt="Rhinovate 3D Visualization Dashboard"
-                className="w-full h-auto object-cover aspect-[16/9]"
+                src="/dashboard-preview.png"
+                alt="Rhinovate Dashboard Preview"
+                className="w-full h-full object-contain"
                 loading="lazy"
               />
             </div>
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-8">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent flex items-end p-8">
               <div className="text-white">
-                <p className="text-sm font-medium mb-1">Rhinovate Visualization Platform</p>
                 <h3 className="text-xl font-semibold">Surgeon Dashboard with Patient Timeline</h3>
               </div>
             </div>
@@ -100,13 +98,13 @@ const Hero = () => {
           {/* Floating Accent Elements */}
           <div className="absolute -top-6 -right-6 bg-rhinovate-500 rounded-lg shadow-lg p-2 rotate-3 animate-float">
             <div className="bg-white rounded-md p-2 text-xs font-medium">
-              2-Week Recovery Progress
+              AI Outcome Prediction
             </div>
           </div>
           <div className="absolute -bottom-5 -left-5 bg-white rounded-lg shadow-lg p-2 -rotate-3 animate-float animation-delay-1000">
             <div className="flex items-center space-x-2 text-xs font-medium text-rhinovate-800">
               <div className="h-2 w-2 rounded-full bg-green-500"></div>
-              <span>98% Patient Satisfaction</span>
+              <span>Increase Patient Satisfaction</span>
             </div>
           </div>
         </div>

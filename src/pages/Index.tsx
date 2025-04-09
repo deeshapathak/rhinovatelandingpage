@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -57,20 +56,20 @@ const Index = () => {
               {
                 number: "01",
                 title: "Capture",
-                description: "Take standard photos of the patient from multiple angles. Our system works with regular smartphone images.",
-                image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334"
+                description: "Capture a 3D facial scan using just your phone. No extra hardware needed—Rhinovate builds the model for you.",
+                image: "/capture-step.png"
               },
               {
                 number: "02",
                 title: "Visualize",
                 description: "Our AI generates hyper-realistic 3D models showing the potential surgical outcome tailored to the patient.",
-                image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+                image: "/realistic.png"
               },
               {
                 number: "03",
                 title: "Timeline",
                 description: "Provide a complete healing timeline showing how results will appear at each recovery stage.",
-                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                image: "/healing.png"
               }
             ].map((step, i) => (
               <div key={i} className="relative bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
