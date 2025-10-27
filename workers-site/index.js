@@ -32,19 +32,7 @@ async function handleEvent(event) {
    * You can add custom logic to how we fetch your assets
    * by configuring the function `mapRequestToAsset`
    */
-  options.mapRequestToAsset = req => {
-    // Handle client-side routing for SPA
-    const url = new URL(req.url)
-    if (url.pathname.startsWith('/about') || 
-        url.pathname.startsWith('/careers') || 
-        url.pathname.startsWith('/contact') || 
-        url.pathname.startsWith('/blog') || 
-        url.pathname.startsWith('/privacy-policy') || 
-        url.pathname.startsWith('/terms-of-service')) {
-      return new Request(`${url.origin}/index.html`, req)
-    }
-    return req
-  }
+  options.mapRequestToAsset = req => new Request(`${new URL(req.url).origin}/index.html`, req)
 
   try {
     if (DEBUG) {
