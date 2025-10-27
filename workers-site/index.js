@@ -32,7 +32,7 @@ async function handleEvent(event) {
    * You can add custom logic to how we fetch your assets
    * by configuring the function `mapRequestToAsset`
    */
-  options.mapRequestToAsset = req => new Request(`${new URL(req.url).origin}/index.html`, req)
+  // options.mapRequestToAsset = req => new Request(`${new URL(req.url).origin}/index.html`, req)
 
   try {
     if (DEBUG) {
@@ -46,11 +46,28 @@ async function handleEvent(event) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
       try {
-        let notFoundResponse = await getAssetFromKV(event, {
-          mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
-        })
-
-        return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
+        // Check if this is a SPA route (not a static asset)
+        const url = new URL(event.request.url)
+        const isSPARoute = url.pathname.startsWith('/about') || 
+                          url.pathname.startsWith('/careers') || 
+                          url.pathname.startsWith('/contact') || 
+                          url.pathname.startsWith('/blog') || 
+                          url.pathname.startsWith('/privacy-policy') || 
+                          url.pathname.startsWith('/terms-of-service')
+        
+        if (isSPARoute) {
+          // Serve index.html for SPA routes
+          let indexResponse = await getAssetFromKV(event, {
+            mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/index.html`, req),
+          })
+          return new Response(indexResponse.body, { ...indexResponse, status: 200 })
+        } else {
+          // Serve 404.html for other missing assets
+          let notFoundResponse = await getAssetFromKV(event, {
+            mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
+          })
+          return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
+        }
       } catch (e) {}
     }
 
