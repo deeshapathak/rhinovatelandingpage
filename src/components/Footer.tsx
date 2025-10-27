@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Twitter, Linkedin, Facebook, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -16,28 +16,16 @@ const Footer = () => {
             </p>
             <div className="mt-6 flex space-x-4">
               <a 
-                href="#" 
-                className="text-gray-400 hover:text-rhinovate-600 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.linkedin.com/company/rhinovate/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-rhinovate-600 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
-                className="text-gray-400 hover:text-rhinovate-600 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a 
-                href="mailto:contact@rhinovate.com" 
+                href="mailto:deesha@rhinovate.ai" 
                 className="text-gray-400 hover:text-rhinovate-600 transition-colors"
                 aria-label="Email"
               >
@@ -51,13 +39,21 @@ const Footer = () => {
               Product
             </h3>
             <ul className="mt-4 space-y-3">
-              {['Features', 'How It Works', 'Pricing', 'Case Studies', 'Testimonials'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#features" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a href="#how-it-works" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a href="#testimonials" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  Testimonials
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -66,13 +62,21 @@ const Footer = () => {
               Company
             </h3>
             <ul className="mt-4 space-y-3">
-              {['About Us', 'Team', 'Careers', 'Press', 'News', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/about" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -81,13 +85,16 @@ const Footer = () => {
               Resources
             </h3>
             <ul className="mt-4 space-y-3">
-              {['Blog', 'Support', 'Documentation', 'Privacy Policy', 'Terms of Service'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/privacy-policy" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms-of-service" className="text-gray-600 hover:text-rhinovate-600 transition-colors text-sm">
+                  Terms of Service
+                </a>
+              </li>
             </ul>
           </div>
         </div>

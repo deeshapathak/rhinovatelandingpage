@@ -40,19 +40,16 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
+          <a href="/#features" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
             Features
           </a>
-          <a href="#how-it-works" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
+          <a href="/#how-it-works" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
             How It Works
           </a>
-          <a href="#testimonials" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
+          <a href="/#testimonials" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
             Testimonials
           </a>
-          <Link to="/news" className="text-sm font-medium text-gray-700 hover:text-rhinovate-600 transition-colors">
-            News
-          </Link>
-          <a href="#contact" className="rhinovate-btn-primary">
+          <a href="/#contact" className="rhinovate-btn-primary">
             Request Demo
           </a>
         </div>
@@ -78,35 +75,28 @@ const Navbar = () => {
       >
         <div className="flex flex-col space-y-8 items-center">
           <a 
-            href="#features" 
+            href="/#features" 
             className="text-lg font-medium text-gray-700 hover:text-rhinovate-600 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Features
           </a>
           <a 
-            href="#how-it-works" 
+            href="/#how-it-works" 
             className="text-lg font-medium text-gray-700 hover:text-rhinovate-600 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             How It Works
           </a>
           <a 
-            href="#testimonials" 
+            href="/#testimonials" 
             className="text-lg font-medium text-gray-700 hover:text-rhinovate-600 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Testimonials
           </a>
-          <Link 
-            to="/news" 
-            className="text-lg font-medium text-gray-700 hover:text-rhinovate-600 transition-colors"
-            onClick={() => setIsOpen(false)}
-          >
-            News
-          </Link>
           <a 
-            href="#contact" 
+            href="/#contact" 
             className="rhinovate-btn-primary w-full text-center"
             onClick={() => setIsOpen(false)}
           >
